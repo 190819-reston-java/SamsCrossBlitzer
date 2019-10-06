@@ -1,15 +1,21 @@
-# project-2-SCBV
+# Project Title:
+* WIP
 
-## Team Name     : wip
+## Team Name: 
+* WIP
 
-### Members:
+## Members:
 * Edwards Sams (lead)
 * Alex Cross
 * David Blitz
 * Efrain Vila
 
-Project Theme : Finance
+## Repository Name : project-2-SCBV
 
-Project Title : wip
+## Project Theme: 
+* Finance
 
-External Api  : Alpha Vantage : https://www.alphavantage.co/
+### External Api:
+* Alpha Vantage : https://www.alphavantage.co/
+
+### User Story
