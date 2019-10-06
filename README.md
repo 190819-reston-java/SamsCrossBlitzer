@@ -10,7 +10,8 @@
 * David Blitz
 * Efrain Vila
 
-## Repository Name : project-2-SCBV
+## Repository Name: 
+* project-2-SCBV
 
 ## Project Theme: 
 * Finance
