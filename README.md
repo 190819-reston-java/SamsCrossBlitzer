@@ -1,8 +1,12 @@
 # project-2-SCBV
 
-Team Name     : wip
+## Team Name     : wip
 
-Members       : Edwards Sams, Alex Cross, David Blitz, Efrain Vila
+### Members:
+* Edwards Sams (lead)
+* Alex Cross
+* David Blitz
+* Efrain Vila
 
 Project Theme : Finance
 
