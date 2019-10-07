@@ -2,7 +2,7 @@
 * WIP
 
 ## Team Name: 
-* WIP
+Cipher Gentlemen
 
 ## Members:
 * Edwards Sams (lead)
