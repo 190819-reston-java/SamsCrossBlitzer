@@ -1,5 +1,4 @@
-## Project Title:
-Project Cipher
+## Project 2: Project Cipher
 
 ## Team Name: 
 The Cipher Gentlemen
