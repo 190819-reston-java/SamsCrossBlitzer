@@ -11,6 +11,7 @@ import { StocksComponent } from './stocks/stocks.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { PoliticsComponent } from './politics/politics.component';
 import { OilComponent } from './oil/oil.component';
+import { ForumComponent } from './forum/forum.component';
 
 
 const routes: Routes = [
@@ -57,6 +58,10 @@ const routes: Routes = [
 {
   path: "us",
   component: USComponent,
+},
+{
+  path: "forum",
+  component: ForumComponent,
 },
 
 ];

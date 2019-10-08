@@ -14,6 +14,7 @@ import { JSPComponent } from './jsp/jsp.component';
 import { GoldComponent } from './gold/gold.component';
 import { OilComponent } from './oil/oil.component';
 import { USComponent } from './us/us.component';
+import { ForumComponent } from './forum/forum.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { USComponent } from './us/us.component';
     JSPComponent,
     GoldComponent,
     OilComponent,
-    USComponent
+    USComponent,
+    ForumComponent
   ],
   imports: [
     BrowserModule,

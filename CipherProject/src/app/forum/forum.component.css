@@ -4,6 +4,8 @@
 
 .row {
     margin-top: 20px;
+    margin-right: 0px;
+
 }
 
 #main {
@@ -11,6 +13,12 @@
     background: gray;
     text-align: center;
 }
+
+#main2 {
+    margin-top: 13%;
+    margin-bottom: 13%;
+}
+
 #side {
     background: red;
     float: right;
