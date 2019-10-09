@@ -4,6 +4,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.revature.models.User;
 
@@ -16,6 +18,9 @@ public class CipherDriver {
 	
 	public static void main(String[] args) {
 		
+		ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
+		
+		
 		// boilerplate for hibernate
 		configuration = new Configuration().configure();
 		ssrb = new StandardServiceRegistryBuilder()
@@ -25,7 +30,7 @@ public class CipherDriver {
 		
 		// Methods for Database Operations
 		//addRecord(); // works - adding new record to db
-		//fetchAndUpdate(); // works - fetching and updating record from db
+		fetchAndUpdate(); // works - fetching and updating record from db
 		
 	}
 
