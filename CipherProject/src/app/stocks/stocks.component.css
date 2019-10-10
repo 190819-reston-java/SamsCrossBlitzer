@@ -5,13 +5,13 @@
 .row {
     margin-top: 20px;
     margin-right: 0px;
-
 }
 
 #main {
     /*make background gray*/
     background: gray;
     text-align: center;
+    padding-bottom:34%;
 }
 #side {
     background: red;
