@@ -1,9 +1,6 @@
 import { Component, OnInit } from  '@angular/core';
-import {PricingDataService} from '../pricing.service';
-import { HttpClient } from '@angular/common/http';
-import {FinancialNewsService, DataEntity} from '../FinancialNewsInterface';
+import { FinancialNewsInterface } from "../FinancialNewsInterface";
 import { NewsService } from '../news.service';
-import { FinancialPricingInterface } from '../FinancialPricingInterface';
 
 @Component({
   selector: 'app-stocks',
@@ -12,10 +9,9 @@ import { FinancialPricingInterface } from '../FinancialPricingInterface';
 })
 export class StocksComponent implements OnInit {
 
-  post : FinancialNewsService[];
+  post : FinancialNewsInterface[];
 
-  constructor(private newsData : NewsService, 
-    private pricingData : PricingDataService) { }
+  constructor(private newsData : NewsService) { }
 
   
   ngOnInit() {   
