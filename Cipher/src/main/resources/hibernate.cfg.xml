@@ -4,9 +4,9 @@
     "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
 	<session-factory>
-		<property name="connection.url">jdbc:postgresql://database-1.crgoxhj0tyku.us-east-1.rds.amazonaws.com:5432/cipher</property>
-		<property name="connection.username">postgres</property>
-		<property name="connection.password">Ramp34687456</property>
+		<property name="connection.url"></property>
+		<property name="connection.username"></property>
+		<property name="connection.password"></property>
 		<property name="connection.driver_class">org.postgresql.Driver</property>
 
 		<property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
