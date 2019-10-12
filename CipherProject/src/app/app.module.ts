@@ -15,6 +15,8 @@ import { GoldComponent } from './gold/gold.component';
 import { OilComponent } from './oil/oil.component';
 import { USComponent } from './us/us.component';
 import { ForumComponent } from './forum/forum.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {IgxFinancialChartModule} from "igniteui-angular-charts/ES5/igx-financial-chart-module";
 
 @NgModule({
   declarations: [
@@ -34,9 +36,12 @@ import { ForumComponent } from './forum/forum.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    IgxFinancialChartModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
