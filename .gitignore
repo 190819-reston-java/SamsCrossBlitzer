@@ -1,6 +1,7 @@
 #Connection creds:
 .connection.properties
 .hibernate.cfg.xml
+hibernate.cfg.xml
 
 # Created by https://www.gitignore.io/api/java,maven,eclipse,visualstudiocode
 # Edit at https://www.gitignore.io/?templates=java,maven,eclipse,visualstudiocode
