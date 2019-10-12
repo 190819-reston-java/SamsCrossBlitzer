@@ -7,6 +7,7 @@ import org.hibernate.cfg.Configuration;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.revature.models.IUser;
 import com.revature.models.User;
 
 public class CipherDriver {
@@ -29,8 +30,8 @@ public class CipherDriver {
 		// boilerplate for hibernate
 		
 		// Methods for Database Operations
-		//addRecord(); // works - adding new record to db
-		fetchAndUpdate(); // works - fetching and updating record from db
+		addRecord(); // works - adding new record to db
+		//fetchAndUpdate(); // works - fetching and updating record from db
 		
 	}
 
@@ -42,11 +43,11 @@ public class CipherDriver {
 		session.beginTransaction();
 
 		// testing adding new record
-		User newUser = new User();
-		newUser.setUserlastname("Hikari");
-		newUser.setUserfirstname("Netto");
-		newUser.setUseremail("NHikari@rockmanexe.com");
-		newUser.setUserpassword("SlotIn");
+		IUser newUser = new User();
+		newUser.setUserlastname("Sakurai");
+		newUser.setUserfirstname("Meiru");
+		newUser.setUseremail("MSeiru@rockmanexe.com");
+		newUser.setUserpassword("Heart");
 
 		session.save(newUser);
 		System.out.println(newUser);
@@ -66,7 +67,7 @@ public class CipherDriver {
 
 		// fetching from DB
 		System.out.println("getting from DB");
-		User fetchUser = (User) session.get(User.class, 1L); // need to be able to set that "#L" to some varable when called by frontend
+		IUser fetchUser = (IUser) session.get(User.class, 1L); // need to be able to set that "#L" to some variable when called by front-end
 		System.out.println(fetchUser);
 
 		// updating the fetch
