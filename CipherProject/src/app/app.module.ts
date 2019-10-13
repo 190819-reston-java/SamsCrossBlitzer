@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +18,12 @@ import { USComponent } from './us/us.component';
 import { ForumComponent } from './forum/forum.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {IgxFinancialChartModule} from "igniteui-angular-charts/ES5/igx-financial-chart-module";
+import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
+import { AppMaterialModule } from './app-material/app-material.module';
+import { AuthService } from './auth/auth.service';
+import { AuthGuard } from './auth/auth.guard';
+
 
 @NgModule({
   declarations: [
@@ -32,15 +39,19 @@ import {IgxFinancialChartModule} from "igniteui-angular-charts/ES5/igx-financial
     GoldComponent,
     OilComponent,
     USComponent,
-    ForumComponent
+    ForumComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     IgxFinancialChartModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    AppMaterialModule
   ],
-  providers: [],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {

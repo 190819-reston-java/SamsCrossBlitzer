@@ -1,4 +1,4 @@
-<nav class="nav nav-tabs navbar-light bg-light">
+<nav class="nav nav-tabs navbar-light bg-light" *ngIf="isLoggedIn$ | async">
 
     <a routerLink="home" routerLinkActive="active" class="nav-item nav-link">Home</a>
     <a routerLink="stocks" routerLinkActive="active" class="nav-item nav-link">Stocks</a>
@@ -6,7 +6,7 @@
     <a routerLink="news" routerLinkActive="active" class="nav-item nav-link">News</a>
     <a routerLink="authentication" routerLinkActive="active" class="nav-item nav-link">Logout</a>
 </nav>
-<nav class="nav nav-tabs navbar-light bg-light">
+<nav class="nav nav-tabs navbar-light bg-light" *ngIf="isLoggedIn$ | async">
     <a routerLink="gold" routerLinkActive="active" class="nav-item nav-link">Gold</a>
     <a routerLink="us" routerLinkActive="active" class="nav-item nav-link">US</a>
     <a routerLink="jsp" routerLinkActive="active" class="nav-item nav-link">JSP</a>

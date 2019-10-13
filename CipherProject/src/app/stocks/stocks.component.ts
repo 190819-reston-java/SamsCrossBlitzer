@@ -1,4 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+// import { Component, OnInit } from '@angular/core';
+
+// @Component({
+//   selector: 'app-stocks',
+//   templateUrl: './stocks.component.html',
+//   styleUrls: ['./stocks.component.css']
+// })
+// export class StocksComponent implements OnInit {
+
+//   constructor() { }
+
+//   ngOnInit() {
+//   }
+
+// }
+
+import { Component, OnInit } from  '@angular/core';
+import { FinancialNewsInterface } from "../FinancialNewsInterface";
+import { NewsService } from '../news.service';
 
 @Component({
   selector: 'app-stocks',
@@ -7,9 +25,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StocksComponent implements OnInit {
 
-  constructor() { }
+  post : FinancialNewsInterface[];
 
+  constructor(private newsData : NewsService) { }
+  
   ngOnInit() {
-  }
+    this.newsData.getNews().subscribe(post => {
+      this.post  = post;
+    }) 
+   
 
+  }
 }

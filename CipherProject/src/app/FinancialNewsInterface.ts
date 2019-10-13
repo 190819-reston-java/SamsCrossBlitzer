@@ -1,4 +1,4 @@
-export interface FinancialNewsService {
+export interface FinancialNewsInterface {
     data?: (DataEntity)[] | null;
   }
   export interface DataEntity {
