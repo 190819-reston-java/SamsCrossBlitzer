@@ -12,9 +12,19 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { PoliticsComponent } from './politics/politics.component';
 import { OilComponent } from './oil/oil.component';
 import { ForumComponent } from './forum/forum.component';
+import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './auth/auth.guard';
 
 
 const routes: Routes = [
+// {
+//   path: "",
+//   component: LoginComponent,
+// },
+// {
+//   path: "Login",
+//   component: HomeComponent,
+// },
 {
   path: "home",
   component: HomeComponent,
@@ -63,6 +73,8 @@ const routes: Routes = [
   path: "forum",
   component: ForumComponent,
 },
+{ path: '', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'login', component: LoginComponent }
 
 ];
 

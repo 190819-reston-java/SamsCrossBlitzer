@@ -1,7 +1,25 @@
 <!-- <p>oil works!</p> -->
-<div class="row">
+<!-- <div class="row">
     <div id="main" class="col-lg-9">
         <p>main body</p>
+    </div>
+    <div id="side" class="col-lg-3">
+        <app-sidebar id="side-bar"></app-sidebar>
+    </div>
+</div> -->
+
+<div class="row">
+    <div class="col-lg-9">
+    <igx-financial-chart
+            [dataSource] = post
+            width="1260px"
+            height="650px"
+            brushes="Green, Blue"
+            outlines="Green, Blue"
+            negativeBrushes="Red"
+            negativeOutlines="Red"
+            thickness="1">
+        </igx-financial-chart>
     </div>
     <div id="side" class="col-lg-3">
         <app-sidebar id="side-bar"></app-sidebar>
