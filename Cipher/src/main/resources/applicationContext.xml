@@ -11,9 +11,9 @@
 	
 	<bean id="ourDatasource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="org.postgresql.Driver"/>
-		<property name="url" value="#{systemEnvironment['AWS_DB_URL_Cipher']}"/>
-		<property name="username" value="#{systemEnvironment['AWS_DB_UserName']}"/>
-		<property name="password" value="#{systemEnvironment['AWS_DB_PassWord']}"/>
+		<property name="url" value="#{systemEnvironment['DBURL']}"/>
+		<property name="username" value="#{systemEnvironment['DBUSERNAME']}"/>
+		<property name="password" value="#{systemEnvironment['DBPASSWORD']}"/>
 	</bean>
 	
 	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">

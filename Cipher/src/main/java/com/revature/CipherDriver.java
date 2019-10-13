@@ -1,5 +1,7 @@
 package com.revature;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -9,6 +11,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.revature.models.IUser;
 import com.revature.models.User;
+import com.revature.repositories.IUserDAO;
 
 public class CipherDriver {
 
@@ -18,23 +21,31 @@ public class CipherDriver {
 	private static Session session;
 	
 	public static void main(String[] args) {
-		
 		ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
+
+		IUserDAO userDAO = (IUserDAO) ac.getBean("userDAO");
+		
+		List<User> users = userDAO.findAll();
+		
+		for(IUser u : users) {
+			System.out.println(u);
+		}
 		
 		
-		// boilerplate for hibernate
-		configuration = new Configuration().configure();
-		ssrb = new StandardServiceRegistryBuilder()
-				.applySettings(configuration.getProperties());
-		sf = configuration.buildSessionFactory(ssrb.build());
-		// boilerplate for hibernate
-		
-		// Methods for Database Operations
-		addRecord(); // works - adding new record to db
-		//fetchAndUpdate(); // works - fetching and updating record from db
+		User newUser = new User();
+//		newUser.setUserlastname("Sakurai");
+//		newUser.setUserfirstname("Meiru");
+//		newUser.setUseremail("MSeiru@rockmanexe.com");
+//		newUser.setUserpassword("Heart");
+		newUser.setUserlastname("Bear");
+		newUser.setUserfirstname("Teddy");
+		newUser.setUseremail("Jblack@yahoo.com");
+		newUser.setUserpassword("black");
+		userDAO.save(newUser);
+		((ClassPathXmlApplicationContext) ac).close();
 		
 	}
-
+/*
 	// Adds a record to the database
 	private static void addRecord() {
 		
@@ -82,4 +93,6 @@ public class CipherDriver {
 		
 	}
 //class closed	
+ * 
+ */
 }

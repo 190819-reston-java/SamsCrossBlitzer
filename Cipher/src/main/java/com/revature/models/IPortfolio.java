@@ -16,9 +16,9 @@ public interface IPortfolio {
 
 	void setPortfolioamount(double portfolioamount);
 
-	IUser getUser();
+	User getUser();
 
-	void setUser(IUser user);
+	void setUser(User user);
 
 	List<Stocks> getStocks();
 

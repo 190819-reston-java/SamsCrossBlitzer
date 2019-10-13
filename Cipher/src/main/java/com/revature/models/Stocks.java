@@ -38,13 +38,13 @@ public class Stocks implements Serializable, IStocks {
 	
 	@ManyToOne
 	@JoinColumn(name ="stock_portfolio")
-	private IPortfolio portfolio;
+	private Portfolios portfolio;
 
 	public Stocks() {
 		super();
 	}
 
-	public Stocks(int stockid, String stockshares, String stockcompany, String stocksymbol, IPortfolio portfolio) {
+	public Stocks(int stockid, String stockshares, String stockcompany, String stocksymbol, Portfolios portfolio) {
 		super();
 		this.stockid = stockid;
 		this.stockshares = stockshares;
@@ -99,7 +99,7 @@ public class Stocks implements Serializable, IStocks {
 	}
 
 	@Override
-	public void setPortfolio(IPortfolio portfolio) {
+	public void setPortfolio(Portfolios portfolio) {
 		this.portfolio = portfolio;
 	}
 
