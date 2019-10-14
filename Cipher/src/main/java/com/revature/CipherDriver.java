@@ -12,6 +12,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.revature.models.IUser;
 import com.revature.models.User;
 import com.revature.repositories.IUserDAO;
+import com.revature.repositories.UserDAO;
 
 public class CipherDriver {
 
@@ -27,7 +28,7 @@ public class CipherDriver {
 		
 		List<User> users = userDAO.findAll();
 		
-		for(IUser u : users) {
+		for(User u : users) {
 			System.out.println(u);
 		}
 		
@@ -37,8 +38,8 @@ public class CipherDriver {
 //		newUser.setUserfirstname("Meiru");
 //		newUser.setUseremail("MSeiru@rockmanexe.com");
 //		newUser.setUserpassword("Heart");
-		newUser.setUserlastname("Bear");
-		newUser.setUserfirstname("Teddy");
+		newUser.setUserlastname("Hogan");
+		newUser.setUserfirstname("Hulk");
 		newUser.setUseremail("Jblack@yahoo.com");
 		newUser.setUserpassword("black");
 		userDAO.save(newUser);
@@ -54,7 +55,7 @@ public class CipherDriver {
 		session.beginTransaction();
 
 		// testing adding new record
-		IUser newUser = new User();
+		User newUser = new User();
 		newUser.setUserlastname("Sakurai");
 		newUser.setUserfirstname("Meiru");
 		newUser.setUseremail("MSeiru@rockmanexe.com");
