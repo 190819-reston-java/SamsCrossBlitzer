@@ -1,0 +1,19 @@
+#side-bar {
+    text-align: right;
+}
+
+.row {
+    margin-top: 20px;
+    margin-right: 0px;
+
+}
+
+#main {
+    /*make background gray*/
+    background: gray;
+    text-align: center;
+}
+#side {
+    background: red;
+    float: right;
+}
