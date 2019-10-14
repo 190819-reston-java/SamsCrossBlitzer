@@ -36,14 +36,6 @@ public interface IUser {
 
 	void setUserstate(String userstate);
 
-	List<Forums> getForums();
-
-	void setForums(List<Forums> forums);
-
-	List<Portfolios> getPortfolios();
-
-	void setPortfolios(List<Portfolios> portfolios);
-
 	int hashCode();
 
 	boolean equals(Object obj);

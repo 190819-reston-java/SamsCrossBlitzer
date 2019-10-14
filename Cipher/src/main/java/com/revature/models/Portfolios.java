@@ -41,7 +41,7 @@ public class Portfolios implements Serializable, IPortfolio {
 	
 	@ManyToOne
 	@JoinColumn(name ="portfolio_user")
-	private IUser user;
+	private User user;
 
 	@Autowired
 	@OneToMany( mappedBy="portfolio")
@@ -51,7 +51,7 @@ public class Portfolios implements Serializable, IPortfolio {
 		super();
 	}
 
-	public Portfolios(long portfolioid, double portfolioreturn, double portfolioamount, IUser user,
+	public Portfolios(long portfolioid, double portfolioreturn, double portfolioamount, User user,
 			List<Stocks> stocks) {
 		super();
 		this.portfolioid = portfolioid;
@@ -92,12 +92,12 @@ public class Portfolios implements Serializable, IPortfolio {
 	}
 
 	@Override
-	public IUser getUser() {
+	public User getUser() {
 		return user;
 	}
 
 	@Override
-	public void setUser(IUser user) {
+	public void setUser(User user) {
 		this.user = user;
 	}
 

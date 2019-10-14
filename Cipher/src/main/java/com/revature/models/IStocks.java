@@ -20,12 +20,12 @@ public interface IStocks {
 
 	IPortfolio getPortfolio();
 
-	void setPortfolio(IPortfolio portfolio);
-
 	int hashCode();
 
 	boolean equals(Object obj);
 
 	String toString();
+
+	void setPortfolio(Portfolios portfolio);
 
 }
