@@ -16,14 +16,16 @@
             <form [formGroup]="form" (ngSubmit)="onSubmit()" id="form">
                 <p>Please login to continue</p>
                 <mat-form-field class="full-width-input">
-                    <input matInput placeholder="User" formControlName="userName" required>
-                    <mat-error *ngIf="isFieldInvalid('userName')">
+                    <label>Email:</label>
+                    <input matInput formControlName="email" required>
+                    <mat-error *ngIf="isFieldInvalid('email')">
                         Please inform your user name
                     </mat-error>
                 </mat-form-field>
                 <mat-form-field class="full-width-input">
-                    <input matInput type="password" placeholder="Password" formControlName="password" required>
-                    <mat-error *ngIf="isFieldInvalid('userName')">
+                        <label>Password:</label>
+                    <input matInput type="password" formControlName="password" required>
+                    <mat-error *ngIf="isFieldInvalid('email')">
                         Please inform your password
                     </mat-error>
                 </mat-form-field>

@@ -17,6 +17,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from './../auth/auth.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -29,12 +30,13 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,         // {3}
-    private authService: AuthService // {4}
+    private authService: AuthService, // {4}
+    private http: HttpClient
   ) {}
 
   ngOnInit() {
     this.form = this.fb.group({     // {5}
-      userName: ['', Validators.required],
+      email: ['', Validators.required],
       password: ['', Validators.required]
     });
   }
@@ -45,6 +47,12 @@ export class LoginComponent implements OnInit {
       (this.form.get(field).untouched && this.formSubmitAttempt)
     );
   }
+
+  // isEmailInvalid(email: string) { // {6}
+  //   return (
+  //     alert("test")
+  //   );
+  // }
 
   onSubmit() {
     if (this.form.valid) {
