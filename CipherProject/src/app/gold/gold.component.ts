@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from  '@angular/core';
+import {PricingDataService} from '../pricing.service';
+import { HttpClient } from '@angular/common/http';
+import {FinancialPricingInterface} from '../FinancialPricingInterface';
 
 @Component({
   selector: 'app-gold',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GoldComponent implements OnInit {
 
-  constructor() { }
+  post : FinancialPricingInterface[];
 
-  ngOnInit() {
+  constructor(private pricingData : PricingDataService) { }
+  
+  ngOnInit() {   
+    this.pricingData.getPrices().subscribe(post => {
+      this.post  = post;
+    }) 
   }
-
 }
+
+
+
