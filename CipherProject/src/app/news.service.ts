@@ -18,6 +18,7 @@ export class NewsService {
   constructor(private http : HttpClient) { }
 
   getNews(): Observable<FinancialNewsInterface[]> {
+    console.log(this.PRICING_URL);
     return this.http.get<FinancialNewsInterface[]>(this.PRICING_URL);
     }
   }

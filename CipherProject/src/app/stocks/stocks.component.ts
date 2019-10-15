@@ -14,7 +14,8 @@ export class StocksComponent implements OnInit {
   constructor(private newsData : NewsService) { }
 
   
-  ngOnInit() {   
+  ngOnInit() {
+    console.log(this.post);
     this.newsData.getNews().subscribe(post => {
       this.post  = post;
     }) 

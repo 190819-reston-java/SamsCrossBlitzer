@@ -21,5 +21,21 @@
 
 #side {
     background: red;
-    float: right;
+    float: left;
+}
+
+#signin-content {
+    text-align:center;
+    background-color: lightgray;
+    height: 780px;
+}
+
+.full-width-input {
+  border-bottom:solid black;
+  width:100%;
+  max-width: 400px;
+}
+
+.btn {
+    margin-top: 5px;
 }
