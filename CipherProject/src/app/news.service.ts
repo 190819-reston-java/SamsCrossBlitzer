@@ -1,11 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-<<<<<<< HEAD
 import { FinancialNewsInterface} from './FinancialNewsInterface';
-=======
-import { FinancialNewsInterface } from "./FinancialNewsInterface";
->>>>>>> 042af41bdf139ce058a4bfb039bcc96a0b31c68a
 
 
 @Injectable({
