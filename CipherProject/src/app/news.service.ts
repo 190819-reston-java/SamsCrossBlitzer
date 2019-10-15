@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { FinancialNewsInterface, DataEntity } from './FinancialNewsInterface';
+import { FinancialNewsInterface} from './FinancialNewsInterface';
 
 
 @Injectable({
@@ -18,7 +18,6 @@ export class NewsService {
   constructor(private http : HttpClient) { }
 
   getNews(): Observable<FinancialNewsInterface[]> {
-    console.log(this.getNews);
     return this.http.get<FinancialNewsInterface[]>(this.PRICING_URL);
     }
   }
