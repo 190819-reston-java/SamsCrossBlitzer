@@ -1,7 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+<<<<<<< HEAD
 import { FinancialNewsInterface} from './FinancialNewsInterface';
+=======
+import { FinancialNewsInterface } from "./FinancialNewsInterface";
+>>>>>>> 042af41bdf139ce058a4bfb039bcc96a0b31c68a
 
 
 @Injectable({
@@ -10,10 +14,10 @@ import { FinancialNewsInterface} from './FinancialNewsInterface';
 export class NewsService {
 
   ticker: string;
-  post :FinancialNewsInterface[];
+  post : FinancialNewsInterface[];
 
   PRICING_URL : string = 
- 'https://stocknewsapi.com/api/v1?tickers=c&items=50&token=t7gdmzbu6t0aq4t7buq4zt8sengdwxsjcyqciyo5';
+ 'https://stocknewsapi.com/api/v1?tickers=tsla&items=50&token=t7gdmzbu6t0aq4t7buq4zt8sengdwxsjcyqciyo5';
   
   constructor(private http : HttpClient) { }
 
