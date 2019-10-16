@@ -14,61 +14,63 @@ import { OilComponent } from './oil/oil.component';
 import { ForumComponent } from './forum/forum.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './auth/auth.guard';
-import { RegisterComponent } from './register/register.component';
-import { PortfolioComponent } from './portfolio/portfolio.component';
 
 
 const routes: Routes = [
+// {
+//   path: "",
+//   component: LoginComponent,
+// },
+// {
+//   path: "Login",
+//   component: HomeComponent,
+// },
 {
-  path: "register",
-  component: RegisterComponent,
-},
-{
-  path: "home", canActivate: [AuthGuard],
+  path: "home",
   component: HomeComponent,
 },
 {
-  path: "authentication", canActivate: [AuthGuard],
+  path: "authentication",
   component: AuthenticationComponent,
 },
 {
-  path: "gold", canActivate: [AuthGuard],
+  path: "gold",
   component: GoldComponent,
 },
 {
-  path: "portfolio", canActivate: [AuthGuard],
-  component: PortfolioComponent,
+  path: "jsp",
+  component: JSPComponent,
 },
 {
-  path: "navbar", canActivate: [AuthGuard],
+  path: "navbar",
   component: NavbarComponent,
 },
 {
-  path: "news", canActivate: [AuthGuard],
+  path: "news",
   component: NewsComponent,
 },
 {
-  path: "oil", canActivate: [AuthGuard],
+  path: "oil",
   component: OilComponent,
 },
 {
-  path: "politics", canActivate: [AuthGuard],
+  path: "politics",
   component: PoliticsComponent,
 },
 {
-  path: "sidebar", canActivate: [AuthGuard],
+  path: "sidebar",
   component: SidebarComponent,
 },
 {
-  path: "stocks", canActivate: [AuthGuard],
+  path: "stocks",
   component: StocksComponent,
 },
 {
-  path: "us", canActivate: [AuthGuard],
+  path: "us",
   component: USComponent,
 },
 {
-  path: "forum", canActivate: [AuthGuard],
+  path: "forum",
   component: ForumComponent,
 },
 { path: '', component: HomeComponent, canActivate: [AuthGuard] },

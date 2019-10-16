@@ -3,8 +3,6 @@ import {PricingDataService} from '../pricing.service';
 import {FinancialPricingInterface} from '../FinancialPricingInterface'
 import { FinancialNewsInterface } from '../FinancialNewsInterface';
 import { NewsService } from '../news.service';
-import { Observable } from 'rxjs/Observable';
-import { AuthService } from './../auth/auth.service';
 
 @Component({
   selector: 'app-oil',
@@ -13,16 +11,12 @@ import { AuthService } from './../auth/auth.service';
 })
 export class OilComponent implements OnInit {
 
-  isLoggedIn$: Observable<boolean>;  
-
-  constructor(private pricingData : PricingDataService, private newsData : NewsService, private authService: AuthService) { }
+  constructor(private pricingData : PricingDataService, private newsData : NewsService) { }
 
   post : FinancialPricingInterface[];
   postNews : FinancialNewsInterface[];
 
-  ngOnInit() { 
-    this.isLoggedIn$ = this.authService.isLoggedIn;
-    
+  ngOnInit() {   
     this.pricingData.getPrices("USO").subscribe(post => {
       this.post  = post;
     })

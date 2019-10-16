@@ -18,8 +18,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from './../auth/auth.service';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
-
 
 @Component({
   selector: 'app-login',
@@ -27,38 +25,39 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  form: FormGroup;
-  private formSubmitAttempt: boolean;
+  form: FormGroup;                    // {1}
+  private formSubmitAttempt: boolean; // {2}
 
   constructor(
-    private fb: FormBuilder,    
-    private authService: AuthService,
-    private http: HttpClient,
-    private router: Router
+    private fb: FormBuilder,         // {3}
+    private authService: AuthService, // {4}
+    private http: HttpClient
   ) {}
 
   ngOnInit() {
-    this.form = this.fb.group({  
+    this.form = this.fb.group({     // {5}
       email: ['', Validators.required],
       password: ['', Validators.required]
     });
   }
 
-  isFieldInvalid(field: string) { 
+  isFieldInvalid(field: string) { // {6}
     return (
       (!this.form.get(field).valid && this.form.get(field).touched) ||
       (this.form.get(field).untouched && this.formSubmitAttempt)
     );
   }
 
+  // isEmailInvalid(email: string) { // {6}
+  //   return (
+  //     alert("test")
+  //   );
+  // }
+
   onSubmit() {
     if (this.form.valid) {
-      this.authService.login(this.form.value);
+      this.authService.login(this.form.value); // {7}
     }
-    this.formSubmitAttempt = true;
-  }
-
-  Register() {
-    this.router.navigate(['/register']);
+    this.formSubmitAttempt = true;             // {8}
   }
 }

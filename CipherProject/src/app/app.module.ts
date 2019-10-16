@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
-
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -23,9 +22,9 @@ import { LoginComponent } from './login/login.component';
 import { AppMaterialModule } from './app-material/app-material.module';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth.guard';
-import { RegisterComponent } from './register/register.component';
-import { PortfolioComponent } from './portfolio/portfolio.component';
-
+import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [
@@ -43,8 +42,6 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
     USComponent,
     ForumComponent,
     LoginComponent,
-    RegisterComponent,
-    PortfolioComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +50,12 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
     IgxFinancialChartModule,
     HttpClientModule,
     ReactiveFormsModule,
-    AppMaterialModule
+    AppMaterialModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatAutocompleteModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
