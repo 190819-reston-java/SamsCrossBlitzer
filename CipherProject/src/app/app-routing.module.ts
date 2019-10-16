@@ -15,6 +15,7 @@ import { ForumComponent } from './forum/forum.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './auth/auth.guard';
 import { RegisterComponent } from './register/register.component';
+import { PortfolioComponent } from './portfolio/portfolio.component';
 
 
 const routes: Routes = [
@@ -35,8 +36,8 @@ const routes: Routes = [
   component: GoldComponent,
 },
 {
-  path: "jsp", canActivate: [AuthGuard],
-  component: JSPComponent,
+  path: "portfolio", canActivate: [AuthGuard],
+  component: PortfolioComponent,
 },
 {
   path: "navbar", canActivate: [AuthGuard],

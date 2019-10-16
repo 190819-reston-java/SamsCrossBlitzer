@@ -24,6 +24,7 @@ import { AppMaterialModule } from './app-material/app-material.module';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth.guard';
 import { RegisterComponent } from './register/register.component';
+import { PortfolioComponent } from './portfolio/portfolio.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { RegisterComponent } from './register/register.component';
     USComponent,
     ForumComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    PortfolioComponent
   ],
   imports: [
     BrowserModule,
