@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { AuthService } from './../auth/auth.service';
 
 @Component({
   selector: 'app-jsp',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JSPComponent implements OnInit {
 
-  constructor() { }
+  isLoggedIn$: Observable<boolean>; 
+
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
+    this.isLoggedIn$ = this.authService.isLoggedIn;
   }
 
 }

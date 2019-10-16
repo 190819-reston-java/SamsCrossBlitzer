@@ -5,17 +5,18 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styles: [
-    `.angular-logo {
-        margin: 0 4px 3px 0;
-        height: 35px;
-        vertical-align: middle;
-    }
-    .fill-remaining-space {
-      flex: 1 1 auto;
-    }
-    `
-  ]
+  styleUrls: ['./navbar.component.css']
+  // styles: [
+  //   `.angular-logo {
+  //       margin: 0 4px 3px 0;
+  //       height: 35px;
+  //       vertical-align: middle;
+  //   }
+  //   .fill-remaining-space {
+  //     flex: 1 1 auto;
+  //   }
+  //   `
+  // ]
 })
 export class NavbarComponent implements OnInit {
 

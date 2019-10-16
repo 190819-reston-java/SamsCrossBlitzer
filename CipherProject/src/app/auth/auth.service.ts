@@ -35,6 +35,11 @@ export class AuthService {
     }
   }
 
+  Register(user: User){
+      this.loggedIn.next(true);
+      this.router.navigate(['/home']);
+  }
+
   logout() {                            
     this.loggedIn.next(false);
     this.router.navigate(['/login']);
