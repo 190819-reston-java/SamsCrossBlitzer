@@ -1,3 +1,4 @@
+//101619 0216p
 package com.revature;
 
 import java.util.List;
@@ -44,7 +45,7 @@ public class CipherDriver {
 //		user7.setUseremail("LHikari@rockmanexe.com");
 //		userDAO.update(user7);
 		
-		String mayl = "MSeiru@rockmanexe.com";
+		String mayl = "M@rockmanexe.com";
 		User checkEmail = userDAO.findByEmail(mayl);
 		System.out.println(checkEmail);
 		

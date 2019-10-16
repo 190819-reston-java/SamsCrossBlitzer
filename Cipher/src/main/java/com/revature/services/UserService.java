@@ -60,14 +60,14 @@ public class UserService {
 		return false;
 	}
 	
-	public boolean passwordValid(User u) {
+	public boolean passwordValid(String email, String password) {
 		boolean validpassword = false;
 		ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
 		IUserDAO userDAOx = (IUserDAO) ac.getBean("userDAO");
 		List<User> users = userDAOx.findAll();
 		for (User user : users) {
-			if (user.getUseremail().contentEquals(u.getUseremail())) {
-				if (user.getUserpassword().contentEquals(u.getUserpassword())) {
+			if (user.getUseremail().contentEquals(email)) {
+				if (user.getUserpassword().contentEquals(password)) {
 					validpassword = true;
 				}
 			}
@@ -77,5 +77,11 @@ public class UserService {
 	}
 	
 	
-
+	public User findByEmail(String email) {
+		ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
+		IUserDAO userx = (IUserDAO) ac.getBean("userDAO");
+		User u = userx.findByEmail(email);
+		((ClassPathXmlApplicationContext) ac).close();
+		return u;
+	}
 }

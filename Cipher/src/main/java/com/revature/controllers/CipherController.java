@@ -52,12 +52,26 @@ public class CipherController {
 		return roll;
 	}
 	
-	@GetMapping(value ="/login")
+	@GetMapping(value ="*/userlogin")
 	@ResponseBody
-	public User login(@RequestParam String email, @RequestParam String password){
+	public User login(@RequestParam String useremail, @RequestParam String userpassword){
 		
-		User u = new User();
-		return u;
+		User u = userService.findByEmail(useremail);
+		if (u == null) {
+			System.out.println("That email does not exist");
+			return u;
+		}
+		else {
+			if (userService.passwordValid(useremail, userpassword)) {
+				return u;
+			}
+			
+			else {
+				System.out.println("Password is Invalid");
+				return u;
+			}
+		
+		}
 		
 	}
 	
