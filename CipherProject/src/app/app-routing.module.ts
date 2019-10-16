@@ -23,51 +23,51 @@ const routes: Routes = [
   component: RegisterComponent,
 },
 {
-  path: "home",
+  path: "home", canActivate: [AuthGuard],
   component: HomeComponent,
 },
 {
-  path: "authentication",
+  path: "authentication", canActivate: [AuthGuard],
   component: AuthenticationComponent,
 },
 {
-  path: "gold",
+  path: "gold", canActivate: [AuthGuard],
   component: GoldComponent,
 },
 {
-  path: "jsp",
+  path: "jsp", canActivate: [AuthGuard],
   component: JSPComponent,
 },
 {
-  path: "navbar",
+  path: "navbar", canActivate: [AuthGuard],
   component: NavbarComponent,
 },
 {
-  path: "news",
+  path: "news", canActivate: [AuthGuard],
   component: NewsComponent,
 },
 {
-  path: "oil",
+  path: "oil", canActivate: [AuthGuard],
   component: OilComponent,
 },
 {
-  path: "politics",
+  path: "politics", canActivate: [AuthGuard],
   component: PoliticsComponent,
 },
 {
-  path: "sidebar",
+  path: "sidebar", canActivate: [AuthGuard],
   component: SidebarComponent,
 },
 {
-  path: "stocks",
+  path: "stocks", canActivate: [AuthGuard],
   component: StocksComponent,
 },
 {
-  path: "us",
+  path: "us", canActivate: [AuthGuard],
   component: USComponent,
 },
 {
-  path: "forum",
+  path: "forum", canActivate: [AuthGuard],
   component: ForumComponent,
 },
 { path: '', component: HomeComponent, canActivate: [AuthGuard] },

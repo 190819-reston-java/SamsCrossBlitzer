@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
+import { AuthService } from './../auth/auth.service';
 
 const oUrl="";
 const promise = new Promise<string>((resolve, reject) => {})
@@ -15,9 +17,12 @@ export class ForumComponent implements OnInit {
   form: FormGroup;
   private formSubmitAttempt: boolean;
 
+  isLoggedIn$: Observable<boolean>;  
+
   constructor(
     private fb: FormBuilder,
-    private http: HttpClient
+    private http: HttpClient,
+    private authService: AuthService
   ) {}
 
   ngOnInit() {
@@ -25,6 +30,7 @@ export class ForumComponent implements OnInit {
       forumstopic: [''],
       forumscomment: ['']
     });
+    this.isLoggedIn$ = this.authService.isLoggedIn;
   }
 
   onSubmit() { {

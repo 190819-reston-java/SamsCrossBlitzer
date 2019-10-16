@@ -3,6 +3,8 @@ import { FinancialNewsInterface } from "../FinancialNewsInterface";
 import { NewsService } from '../news.service';
 import { FinancialPricingInterface } from '../FinancialPricingInterface';
 import { PricingDataService } from '../pricing.service';
+import { Observable } from 'rxjs/Observable';
+import { AuthService } from './../auth/auth.service';
 
 @Component({
   selector: 'app-stocks',
@@ -11,13 +13,17 @@ import { PricingDataService } from '../pricing.service';
 })
 export class StocksComponent implements OnInit {
 
-  constructor(private pricingData : PricingDataService, private newsData : NewsService) { }
+  isLoggedIn$: Observable<boolean>;
+
+  constructor(private pricingData : PricingDataService, private newsData : NewsService, private authService: AuthService) { }
 
   ticker : string;
   post : FinancialPricingInterface[];
   postNews : FinancialNewsInterface[];
 
-  ngOnInit() {   
+  ngOnInit() { 
+    this.isLoggedIn$ = this.authService.isLoggedIn;
+    
     this.pricingData.getPrices("AMZN").subscribe(post => {
       this.post  = post;
     })
