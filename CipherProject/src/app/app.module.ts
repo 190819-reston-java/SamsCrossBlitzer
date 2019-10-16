@@ -23,6 +23,7 @@ import { LoginComponent } from './login/login.component';
 import { AppMaterialModule } from './app-material/app-material.module';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth.guard';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { AuthGuard } from './auth/auth.guard';
     OilComponent,
     USComponent,
     ForumComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

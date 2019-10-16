@@ -14,17 +14,14 @@ import { OilComponent } from './oil/oil.component';
 import { ForumComponent } from './forum/forum.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './auth/auth.guard';
+import { RegisterComponent } from './register/register.component';
 
 
 const routes: Routes = [
-// {
-//   path: "",
-//   component: LoginComponent,
-// },
-// {
-//   path: "Login",
-//   component: HomeComponent,
-// },
+{
+  path: "register",
+  component: RegisterComponent,
+},
 {
   path: "home",
   component: HomeComponent,
