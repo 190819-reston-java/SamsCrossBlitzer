@@ -28,7 +28,7 @@ public class User implements Serializable, IUser {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="user_id")
-	private long userid;
+	private int userid;
 	
 	@Column(name="user_lastname")
 	private String userlastname;
@@ -58,9 +58,8 @@ public class User implements Serializable, IUser {
 		super();
 	}
 	
-	public User(long userid, String userlastname, String userfirstname, String useremail, String userpassword,
-			String userstreetaddress, String usercity, String userstate, List<Forums> forums,
-			List<Portfolios> portfolios) {
+	public User(int userid, String userlastname, String userfirstname, String useremail, String userpassword,
+			String userstreetaddress, String usercity, String userstate) {
 		super();
 		this.userid = userid;
 		this.userlastname = userlastname;
@@ -78,7 +77,7 @@ public class User implements Serializable, IUser {
 	}
 
 	@Override
-	public void setUserid(long userid) {
+	public void setUserid(int userid) {
 		this.userid = userid;
 	}
 
@@ -179,7 +178,7 @@ public class User implements Serializable, IUser {
 	public String toString() {
 		return "User [userid=" + userid + ", userlastname=" + userlastname + ", userfirstname=" + userfirstname
 				+ ", useremail=" + useremail + ", userpassword=" + userpassword + ", userstreetaddress="
-				+ userstreetaddress + ", usercity=" + usercity + ", userstate=" + userstate;
+				+ userstreetaddress + ", usercity=" + usercity + ", userstate=" + userstate + "]";
 	}
 
 

@@ -6,7 +6,7 @@ public interface IUser {
 
 	long getUserid();
 
-	void setUserid(long userid);
+	void setUserid(int userid);
 
 	String getUserlastname();
 

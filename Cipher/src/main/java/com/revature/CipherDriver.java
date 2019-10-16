@@ -32,17 +32,18 @@ public class CipherDriver {
 			System.out.println(u);
 		}
 		
-		
-		User newUser = new User();
+		User roll = userDAO.findOne(3);
+		System.out.println(roll);
+	//	User newUser = new User();
 //		newUser.setUserlastname("Sakurai");
 //		newUser.setUserfirstname("Meiru");
 //		newUser.setUseremail("MSeiru@rockmanexe.com");
 //		newUser.setUserpassword("Heart");
-		newUser.setUserlastname("Morgan");
-		newUser.setUserfirstname("JP");
-		newUser.setUseremail("JPMorgan@yahoo.com");
-		newUser.setUserpassword("Chase");
-		userDAO.save(newUser);
+	//	newUser.setUserlastname("Morgan");
+	//	newUser.setUserfirstname("JP");
+	//	newUser.setUseremail("JPMorgan@yahoo.com");
+	//	newUser.setUserpassword("Chase");
+	//	userDAO.save(newUser);
 		((ClassPathXmlApplicationContext) ac).close();
 		
 	}
