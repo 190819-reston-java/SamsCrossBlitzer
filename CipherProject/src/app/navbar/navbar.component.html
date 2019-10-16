@@ -2,14 +2,13 @@
 
     <a routerLink="home" routerLinkActive="active" class="nav-item nav-link">Home</a>
     <a routerLink="stocks" routerLinkActive="active" class="nav-item nav-link">Stocks</a>
-    <a routerLink="politics" routerLinkActive="active" class="nav-item nav-link">Politics</a>
+    <a routerLink="portfolio" routerLinkActive="active" class="nav-item nav-link">Portfolio</a>
     <a routerLink="news" routerLinkActive="active" class="nav-item nav-link">News</a>
     <a (click)="this.loggedIn.next(false)" routerLink="login" routerLinkActive="active" class="nav-item nav-link">Logout</a>
 </nav>
 <nav class="nav nav-tabs navbar-light bg-light" *ngIf="isLoggedIn$ | async">
-    <a routerLink="gold" routerLinkActive="active" class="nav-item nav-link">Gold</a>
+    <a routerLink="gold" routerLinkActive="active" class="nav-item2 nav-link">Gold</a>
     <a routerLink="us" routerLinkActive="active" class="nav-item nav-link">US</a>
-    <a routerLink="portfolio" routerLinkActive="active" class="nav-item nav-link">Portfolio</a>
     <a routerLink="oil" routerLinkActive="active" class="nav-item nav-link">Oil</a>
     <a routerLink="forum" routerLinkActive="active" class="nav-item nav-link">Forum</a>
 
