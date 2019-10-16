@@ -51,5 +51,6 @@ public class UserDAO implements IUserDAO {
 		s.save(u);
 		return u;
 	}
+	
 
 }

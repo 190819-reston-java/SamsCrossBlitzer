@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -63,7 +64,6 @@ public class CipherController {
 	@GetMapping(value="/users")
 	@ResponseBody
 	public List<User> findAll() {
-		System.out.println("In user mapping");
 		return userService.findAll();
 		
 	}
@@ -79,12 +79,33 @@ public class CipherController {
 //		  return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 	}
 	
-	@PutMapping(value = "/registration")
+	@PostMapping(value = "*/registration")
 	@ResponseBody
-	public ResponseEntity<User> upsert(@RequestBody User u) {
-		User response = userService.save(u);
+	public void register(@RequestParam String useremail, @RequestParam String userpassword,
+			@RequestParam String userfirstname, @RequestParam String userlastname){
+			User u = new User();
+			u.setUserfirstname(userfirstname);
+			u.setUserlastname(userlastname);
+			u.setUseremail(useremail);
+			u.setUserpassword(userpassword);
+			userService.createUser(u);
 		
-		return ResponseEntity.ok(response);
 	}
+
+/*
+	@PutMapping(value = "/forums")
+	@ResponseBody
+	public ResponseEntity<Forums> createNew(HttpServletRequest request, HttpServletResponse response, Forums forum) {
+
+		Forums f = (Forums) request.getSession().getAttribute("currentUser");
+		
+		if(f == null) {
+			return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+		}
+		
+		cipherServices.createNew(forum, f);
+		return ResponseEntity.status(HttpStatus.OK).body(forum);
+	}
+*/
 
 }

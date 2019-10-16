@@ -38,8 +38,11 @@ public class UserService {
 		return u;
 	}
 	
-	public User save(User u) {
-		userDAO.save(u);
+	public User createUser(User u) {
+		ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
+		IUserDAO userDAOx = (IUserDAO) ac.getBean("userDAO");		
+		userDAOx.save(u);
+		((ClassPathXmlApplicationContext) ac).close();
 		return u;
 	}
 	
@@ -55,6 +58,22 @@ public class UserService {
 		}
 		
 		return false;
+	}
+	
+	public boolean passwordValid(User u) {
+		boolean validpassword = false;
+		ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
+		IUserDAO userDAOx = (IUserDAO) ac.getBean("userDAO");
+		List<User> users = userDAOx.findAll();
+		for (User user : users) {
+			if (user.getUseremail().contentEquals(u.getUseremail())) {
+				if (user.getUserpassword().contentEquals(u.getUserpassword())) {
+					validpassword = true;
+				}
+			}
+		}
+		((ClassPathXmlApplicationContext) ac).close();
+		return validpassword;
 	}
 	
 
