@@ -26,7 +26,7 @@ public class Article implements Serializable, IArticle {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="article_id")
-	private int articleid;
+	private long articleid;
 	
 	@Column(name="article_sourceid")
 	private String articlesourceid;
@@ -41,7 +41,7 @@ public class Article implements Serializable, IArticle {
 		super();
 	}
 
-	public Article(int articleid, String articlesourceid, String articletitle, String articlesymbols) {
+	public Article(long articleid, String articlesourceid, String articletitle, String articlesymbols) {
 		super();
 		this.articleid = articleid;
 		this.articlesourceid = articlesourceid;
@@ -49,34 +49,42 @@ public class Article implements Serializable, IArticle {
 		this.articlesymbols = articlesymbols;
 	}
 
-	public int getArticleid() {
+	@Override
+	public long getArticleid() {
 		return articleid;
 	}
 
-	public void setArticleid(int articleid) {
+	@Override
+	public void setArticleid(long articleid) {
 		this.articleid = articleid;
 	}
 
+	@Override
 	public String getArticlesourceid() {
 		return articlesourceid;
 	}
 
+	@Override
 	public void setArticlesourceid(String articlesourceid) {
 		this.articlesourceid = articlesourceid;
 	}
 
+	@Override
 	public String getArticletitle() {
 		return articletitle;
 	}
 
+	@Override
 	public void setArticletitle(String articletitle) {
 		this.articletitle = articletitle;
 	}
 
+	@Override
 	public String getArticlesymbols() {
 		return articlesymbols;
 	}
 
+	@Override
 	public void setArticlesymbols(String articlesymbols) {
 		this.articlesymbols = articlesymbols;
 	}
@@ -104,7 +112,7 @@ public class Article implements Serializable, IArticle {
 	public String toString() {
 		return "Article [articleid=" + articleid + ", articlesourceid=" + articlesourceid + ", articletitle="
 				+ articletitle + ", articlesymbols=" + articlesymbols + "]";
-	}
-
-		
+	}	
+	
+	
 }

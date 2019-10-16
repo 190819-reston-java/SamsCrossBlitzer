@@ -10,5 +10,6 @@ public interface IUserDAO {
 	public User findOne(int id);
 	public User update(User u);
 	public User save(User u);
+	public User findByEmail(String email);
 
 }

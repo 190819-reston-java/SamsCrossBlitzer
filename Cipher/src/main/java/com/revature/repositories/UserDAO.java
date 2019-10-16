@@ -52,5 +52,24 @@ public class UserDAO implements IUserDAO {
 		return u;
 	}
 	
+	@Override
+	@Transactional
+	public User findByEmail(String email) {
+		User returnedUser = null;
+		Session s = sf.getCurrentSession();
+		@SuppressWarnings("unchecked")
+		List<User> users = s.createCriteria(User.class).list();	
+		for (User user : users) {
+			if (user.getUseremail().contentEquals(email)) {
+				returnedUser = user;
+			}
+		}
+		
+		if (returnedUser == null) System.out.println("User Not in Database"); 
+		return returnedUser;
+	}
+	
+	
+	
 
 }

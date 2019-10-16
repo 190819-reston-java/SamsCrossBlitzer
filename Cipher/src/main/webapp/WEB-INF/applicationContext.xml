@@ -26,7 +26,6 @@
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="dataSource" ref="ourDatasource" />
 		<property name="packagesToScan" value="com.revature" />
-
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
@@ -36,11 +35,9 @@
 		</property>
 	</bean>
 
-
 	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
 		<property name="nestedTransactionAllowed" value="true" />
 	</bean>
 </beans>
-

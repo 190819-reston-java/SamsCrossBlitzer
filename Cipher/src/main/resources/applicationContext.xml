@@ -11,7 +11,7 @@
 	
 	<bean id="ourDatasource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="org.postgresql.Driver"/>
-		<property name="url" value="#{systemEnvironment['DBURL']}"/> <!-- Changing environmental info requires a full restart of system -->
+		<property name="url" value="#{systemEnvironment['DBURL']}"/>
 		<property name="username" value="#{systemEnvironment['DBUSERNAME']}"/>
 		<property name="password" value="#{systemEnvironment['DBPASSWORD']}"/>
 	</bean>
