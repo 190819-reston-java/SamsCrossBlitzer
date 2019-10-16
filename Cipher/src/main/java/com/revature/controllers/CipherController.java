@@ -46,9 +46,9 @@ public class CipherController {
 	@RequestMapping(method = RequestMethod.GET, value = "/test2")
 	@ResponseBody
 	public User getBot() {
-		User navi = userService.findOne(1);
-		System.out.println(navi);
-		return navi;
+		User roll = userService.findOne(3);
+		System.out.println(roll);
+		return roll;
 	}
 	
 	@GetMapping(value ="/login")
@@ -79,7 +79,7 @@ public class CipherController {
 //		  return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 	}
 	
-	@PutMapping(value = "/users")
+	@PutMapping(value = "/registration")
 	@ResponseBody
 	public ResponseEntity<User> upsert(@RequestBody User u) {
 		User response = userService.save(u);

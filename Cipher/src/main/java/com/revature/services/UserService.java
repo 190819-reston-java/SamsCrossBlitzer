@@ -16,25 +16,25 @@ public class UserService {
 	
 	//private List<User> users = new ArrayList<User>();
 	UserDAO userDAO = new UserDAO();
-	
-//	ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
-//	private IUserDAO userDAO = (IUserDAO) ac.getBean("userDAO");
-//	((ClassPathXmlApplicationContext) ac).close();
 
 	public UserService() {
 		super();
-//		users.add(new User(1, "Steve", "Jobs", new Account(2000000)));
-//		users.add(new User(2, "John", "Smith", new Account(20)));
+
 	}
 	
 	public List<User> findAll() {
-		List<User> users = userDAO.findAll();
+		ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
+		IUserDAO userDAOx = (IUserDAO) ac.getBean("userDAO");
+		List<User> users = userDAOx.findAll();
+		((ClassPathXmlApplicationContext) ac).close();		
 		return users;
 	}
 
 	public User findOne(int id) {
-		
-		User u = userDAO.findOne(id);
+		ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
+		IUserDAO userx = (IUserDAO) ac.getBean("userDAO");
+		User u = userx.findOne(id);
+		((ClassPathXmlApplicationContext) ac).close();
 		return u;
 	}
 	
@@ -44,7 +44,10 @@ public class UserService {
 	}
 	
 	public boolean exists(int id) {
-		List<User> users = userDAO.findAll();
+		ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
+		IUserDAO userDAOx = (IUserDAO) ac.getBean("userDAO");		
+		List<User> users = userDAOx.findAll();
+		((ClassPathXmlApplicationContext) ac).close();
 		for(User u : users) {
 			if(id == u.getUserid()) {
 				return true;
