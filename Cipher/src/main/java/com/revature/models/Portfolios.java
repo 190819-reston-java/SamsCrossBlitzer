@@ -30,7 +30,7 @@ public class Portfolios implements Serializable, IPortfolio {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="portfolio_id")
-	private long portfolioid;
+	private int portfolioid;
 	
 	@Column(name="portfolio_return")
 	private double portfolioreturn;
@@ -51,8 +51,7 @@ public class Portfolios implements Serializable, IPortfolio {
 		super();
 	}
 
-	public Portfolios(long portfolioid, double portfolioreturn, double portfolioamount, User user,
-			List<Stocks> stocks) {
+	public Portfolios(int portfolioid, double portfolioreturn, double portfolioamount, User user, List<Stocks> stocks) {
 		super();
 		this.portfolioid = portfolioid;
 		this.portfolioreturn = portfolioreturn;
@@ -61,52 +60,42 @@ public class Portfolios implements Serializable, IPortfolio {
 		this.stocks = stocks;
 	}
 
-	@Override
-	public long getPortfolioid() {
+	public int getPortfolioid() {
 		return portfolioid;
 	}
 
-	@Override
-	public void setPortfolioid(long portfolioid) {
+	public void setPortfolioid(int portfolioid) {
 		this.portfolioid = portfolioid;
 	}
 
-	@Override
 	public double getPortfolioreturn() {
 		return portfolioreturn;
 	}
 
-	@Override
 	public void setPortfolioreturn(double portfolioreturn) {
 		this.portfolioreturn = portfolioreturn;
 	}
 
-	@Override
 	public double getPortfolioamount() {
 		return portfolioamount;
 	}
 
-	@Override
 	public void setPortfolioamount(double portfolioamount) {
 		this.portfolioamount = portfolioamount;
 	}
 
-	@Override
 	public User getUser() {
 		return user;
 	}
 
-	@Override
 	public void setUser(User user) {
 		this.user = user;
 	}
 
-	@Override
 	public List<Stocks> getStocks() {
 		return stocks;
 	}
 
-	@Override
 	public void setStocks(List<Stocks> stocks) {
 		this.stocks = stocks;
 	}
@@ -137,7 +126,6 @@ public class Portfolios implements Serializable, IPortfolio {
 				+ portfolioamount + ", user=" + user + ", stocks=" + stocks + "]";
 	}
 
-	
 	
 //class closed	
 }

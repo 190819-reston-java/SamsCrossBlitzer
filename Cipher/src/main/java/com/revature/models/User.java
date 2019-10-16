@@ -28,7 +28,7 @@ public class User implements Serializable, IUser {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="user_id")
-	private long userid;
+	private int userid;
 	
 	@Column(name="user_lastname")
 	private String userlastname;
@@ -57,10 +57,10 @@ public class User implements Serializable, IUser {
 	public User() {
 		super();
 	}
-	
-	public User(long userid, String userlastname, String userfirstname, String useremail, String userpassword,
-			String userstreetaddress, String usercity, String userstate, List<Forums> forums,
-			List<Portfolios> portfolios) {
+
+
+	public User(int userid, String userlastname, String userfirstname, String useremail, String userpassword,
+			String userstreetaddress, String usercity, String userstate) {
 		super();
 		this.userid = userid;
 		this.userlastname = userlastname;
@@ -72,82 +72,82 @@ public class User implements Serializable, IUser {
 		this.userstate = userstate;
 	}
 
-	@Override
-	public long getUserid() {
+
+	public int getUserid() {
 		return userid;
 	}
 
-	@Override
-	public void setUserid(long userid) {
+
+	public void setUserid(int userid) {
 		this.userid = userid;
 	}
 
-	@Override
+
 	public String getUserlastname() {
 		return userlastname;
 	}
 
-	@Override
+
 	public void setUserlastname(String userlastname) {
 		this.userlastname = userlastname;
 	}
 
-	@Override
+
 	public String getUserfirstname() {
 		return userfirstname;
 	}
 
-	@Override
+
 	public void setUserfirstname(String userfirstname) {
 		this.userfirstname = userfirstname;
 	}
 
-	@Override
+
 	public String getUseremail() {
 		return useremail;
 	}
 
-	@Override
+
 	public void setUseremail(String useremail) {
 		this.useremail = useremail;
 	}
 
-	@Override
+
 	public String getUserpassword() {
 		return userpassword;
 	}
 
-	@Override
+
 	public void setUserpassword(String userpassword) {
 		this.userpassword = userpassword;
 	}
 
-	@Override
+
 	public String getUserstreetaddress() {
 		return userstreetaddress;
 	}
 
-	@Override
+
 	public void setUserstreetaddress(String userstreetaddress) {
 		this.userstreetaddress = userstreetaddress;
 	}
 
-	@Override
+
 	public String getUsercity() {
 		return usercity;
 	}
 
-	@Override
+
 	public void setUsercity(String usercity) {
 		this.usercity = usercity;
 	}
 
-	@Override
+
 	public String getUserstate() {
 		return userstate;
 	}
 
-	@Override
+
 	public void setUserstate(String userstate) {
 		this.userstate = userstate;
 	}
@@ -155,9 +155,10 @@ public class User implements Serializable, IUser {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(usercity, useremail, userfirstname, userid, userlastname, userpassword,
-				userstate, userstreetaddress);
+		return Objects.hash(usercity, useremail, userfirstname, userid, userlastname, userpassword, userstate,
+				userstreetaddress);
 	}
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -168,22 +169,21 @@ public class User implements Serializable, IUser {
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
-		return  Objects.equals(usercity, other.usercity) && Objects.equals(useremail, other.useremail)
+		return Objects.equals(usercity, other.usercity) && Objects.equals(useremail, other.useremail)
 				&& Objects.equals(userfirstname, other.userfirstname) && userid == other.userid
 				&& Objects.equals(userlastname, other.userlastname) && Objects.equals(userpassword, other.userpassword)
 				&& Objects.equals(userstate, other.userstate)
 				&& Objects.equals(userstreetaddress, other.userstreetaddress);
 	}
 
+
 	@Override
 	public String toString() {
 		return "User [userid=" + userid + ", userlastname=" + userlastname + ", userfirstname=" + userfirstname
 				+ ", useremail=" + useremail + ", userpassword=" + userpassword + ", userstreetaddress="
-				+ userstreetaddress + ", usercity=" + usercity + ", userstate=" + userstate;
+				+ userstreetaddress + ", usercity=" + usercity + ", userstate=" + userstate + "]";
 	}
-
-
-
+	
 
 //class closed
 }

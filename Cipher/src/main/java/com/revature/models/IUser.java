@@ -4,9 +4,9 @@ import java.util.List;
 
 public interface IUser {
 
-	long getUserid();
+	int getUserid();
 
-	void setUserid(long userid);
+	void setUserid(int userid);
 
 	String getUserlastname();
 
