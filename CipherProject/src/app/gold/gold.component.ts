@@ -3,8 +3,6 @@ import {PricingDataService} from '../pricing.service';
 import {FinancialPricingInterface} from '../FinancialPricingInterface'
 import { NewsService } from '../news.service';
 import { FinancialNewsInterface } from '../FinancialNewsInterface';
-import { Observable } from 'rxjs/Observable';
-import { AuthService } from './../auth/auth.service';
 
 @Component({
   selector: 'app-gold',
@@ -13,9 +11,7 @@ import { AuthService } from './../auth/auth.service';
 })
 export class GoldComponent implements OnInit {
 
-  isLoggedIn$: Observable<boolean>; 
-
-  constructor(private pricingData : PricingDataService, private newsData : NewsService, private authService: AuthService) { }
+  constructor(private pricingData : PricingDataService, private newsData : NewsService) { }
 
   post : FinancialPricingInterface[];
   postNews : FinancialNewsInterface[];
@@ -28,8 +24,6 @@ export class GoldComponent implements OnInit {
       this.newsData.getNews("GLD").subscribe(postNews => {
       this.postNews  = postNews;  
       })
-
-      this.isLoggedIn$ = this.authService.isLoggedIn;
 
     }
   }

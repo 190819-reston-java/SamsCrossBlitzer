@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { AuthService } from './../auth/auth.service';
 
 @Component({
   selector: 'app-us',
@@ -9,12 +7,9 @@ import { AuthService } from './../auth/auth.service';
 })
 export class USComponent implements OnInit {
 
-  isLoggedIn$: Observable<boolean>; 
-
-  constructor(private authService: AuthService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.isLoggedIn$ = this.authService.isLoggedIn;
   }
 
 }

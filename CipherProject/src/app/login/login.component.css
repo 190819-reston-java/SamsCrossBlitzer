@@ -31,15 +31,10 @@
       /* width: 50%; */
       margin:300px;
       /* width:200px; */
-      margin-bottom:-50px;
   }
 
   .full-width-input {
     border-bottom:solid black;
     width:100%;
     /* max-width:25%; */
-  }
-
-  h3 {
-    text-decoration: underline;
   }
