@@ -32,64 +32,12 @@ public class CipherDriver {
 			System.out.println(u);
 		}
 		
-		
-		User newUser = new User();
-		newUser.setUserlastname("Hogan");
-		newUser.setUserfirstname("Hulk");
-		newUser.setUseremail("Jblack@yahoo.com");
-		newUser.setUserpassword("black");
-		userDAO.save(newUser);
-		((ClassPathXmlApplicationContext) ac).close();
-		
-	}
-/*
-	// Adds a record to the database
-	private static void addRecord() {
-		
-		// required session headers
-		session = sf.openSession();
-		session.beginTransaction();
+		User roll = userDAO.findOne(3);
+		System.out.println(roll);
 
-		// testing adding new record
-		User newUser = new User();
-		newUser.setUserlastname("Sakurai");
-		newUser.setUserfirstname("Meiru");
-		newUser.setUseremail("MSeiru@rockmanexe.com");
-		newUser.setUserpassword("Heart");
-
-		session.save(newUser);
-		System.out.println(newUser);
-
-		// required session footer
-		session.getTransaction().commit();
-		session.close();
+				
+    ((ClassPathXmlApplicationContext) ac).close();
 		
 	}
 
-	// Fetches and Updates a record in the database
-	private static void fetchAndUpdate() {
-		
-		// required session headers
-		session = sf.openSession();
-		session.beginTransaction();
-
-		// fetching from DB
-		System.out.println("getting from DB");
-		IUser fetchUser = (IUser) session.get(User.class, 1L); // need to be able to set that "#L" to some variable when called by front-end
-		System.out.println(fetchUser);
-
-		// updating the fetch
-		fetchUser.setUserfirstname("Lan");
-		session.update(fetchUser);
-
-		System.out.println(fetchUser);
-
-		// required session footer
-		session.getTransaction().commit();
-		session.close();
-		
-	}
-//class closed	
- * 
- */
 }

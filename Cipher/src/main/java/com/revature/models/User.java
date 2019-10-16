@@ -58,7 +58,6 @@ public class User implements Serializable, IUser {
 		super();
 	}
 
-
 	public User(int userid, String userlastname, String userfirstname, String useremail, String userpassword,
 			String userstreetaddress, String usercity, String userstate) {
 		super();
@@ -78,6 +77,7 @@ public class User implements Serializable, IUser {
 	}
 
 
+	@Override
 	public void setUserid(int userid) {
 		this.userid = userid;
 	}
