@@ -2,9 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
+<<<<<<< HEAD
 const oUrl="";
 const promise = new Promise<string>((resolve, reject) => {})
 
+=======
+const oURL = "";
+>>>>>>> 40d637350cc1ac441c7cd8fa9cd606a63a3b6b70
 
 @Component({
   selector: 'app-forum',
@@ -28,7 +32,7 @@ export class ForumComponent implements OnInit {
   }
 
   onSubmit() { {
-      fetch(oUrl, { method: "POST", body: JSON.stringify(this.form.value)})
+      fetch(oURL, { method: "POST", body: JSON.stringify(this.form.value)})
     }
     this.formSubmitAttempt = true;
   }
