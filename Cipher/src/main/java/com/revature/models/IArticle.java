@@ -2,9 +2,9 @@ package com.revature.models;
 
 public interface IArticle {
 
-	long getArticleid();
+	int getArticleid();
 
-	void setArticleid(long articleid);
+	void setArticleid(int articleid);
 
 	String getArticlesourceid();
 

@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface IUser {
 
-	long getUserid();
+	int getUserid();
 
 	void setUserid(int userid);
 

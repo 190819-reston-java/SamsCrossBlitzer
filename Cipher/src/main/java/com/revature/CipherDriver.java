@@ -9,10 +9,10 @@ import org.hibernate.cfg.Configuration;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.revature.models.IUser;
 import com.revature.models.User;
 import com.revature.repositories.IUserDAO;
-import com.revature.repositories.UserDAO;
+
+
 
 public class CipherDriver {
 
@@ -34,17 +34,9 @@ public class CipherDriver {
 		
 		User roll = userDAO.findOne(3);
 		System.out.println(roll);
-	//	User newUser = new User();
-//		newUser.setUserlastname("Sakurai");
-//		newUser.setUserfirstname("Meiru");
-//		newUser.setUseremail("MSeiru@rockmanexe.com");
-//		newUser.setUserpassword("Heart");
-	//	newUser.setUserlastname("Morgan");
-	//	newUser.setUserfirstname("JP");
-	//	newUser.setUseremail("JPMorgan@yahoo.com");
-	//	newUser.setUserpassword("Chase");
-	//	userDAO.save(newUser);
-		((ClassPathXmlApplicationContext) ac).close();
+
+				
+    ((ClassPathXmlApplicationContext) ac).close();
 		
 	}
 

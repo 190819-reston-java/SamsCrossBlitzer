@@ -4,9 +4,9 @@ import java.util.List;
 
 public interface IPortfolio {
 
-	long getPortfolioid();
+	int getPortfolioid();
 
-	void setPortfolioid(long portfolioid);
+	void setPortfolioid(int portfolioid);
 
 	double getPortfolioreturn();
 
