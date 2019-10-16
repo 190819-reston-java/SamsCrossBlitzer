@@ -39,3 +39,7 @@
     width:100%;
     /* max-width:25%; */
   }
+
+  h3 {
+    text-decoration: underline;
+  }
