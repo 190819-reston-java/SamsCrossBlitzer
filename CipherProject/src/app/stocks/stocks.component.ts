@@ -1,6 +1,8 @@
 import { Component, OnInit } from  '@angular/core';
 import { FinancialNewsInterface } from "../FinancialNewsInterface";
 import { NewsService } from '../news.service';
+import { FinancialPricingInterface } from '../FinancialPricingInterface';
+import { PricingDataService } from '../pricing.service';
 
 @Component({
   selector: 'app-stocks',
@@ -9,16 +11,20 @@ import { NewsService } from '../news.service';
 })
 export class StocksComponent implements OnInit {
 
-  post : FinancialNewsInterface[];
+  constructor(private pricingData : PricingDataService, private newsData : NewsService) { }
 
-  constructor(private newsData : NewsService) { }
+  ticker : string;
+  post : FinancialPricingInterface[];
+  postNews : FinancialNewsInterface[];
 
-  
-  ngOnInit() {
-    console.log(this.post);
-    this.newsData.getNews().subscribe(post => {
+  ngOnInit() {   
+    this.pricingData.getPrices("AMZN").subscribe(post => {
       this.post  = post;
-    }) 
+    })
+      
+      this.newsData.getNews("AMZN").subscribe(postNews => {
+      this.postNews  = postNews;  
+      })
 
+    }
   }
-}

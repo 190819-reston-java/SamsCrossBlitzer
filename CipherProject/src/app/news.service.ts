@@ -12,13 +12,14 @@ export class NewsService {
   ticker: string;
   post : FinancialNewsInterface[];
 
-  PRICING_URL : string = 
- 'https://stocknewsapi.com/api/v1?tickers=tsla&items=50&token=t7gdmzbu6t0aq4t7buq4zt8sengdwxsjcyqciyo5';
+  PRICING_URL : string ; 
   
   constructor(private http : HttpClient) { }
 
-  getNews(): Observable<FinancialNewsInterface[]> {
-    console.log(this.PRICING_URL);
+  getNews(ticker): Observable<FinancialNewsInterface[]> {
+    this.PRICING_URL  = 
+    'https://stocknewsapi.com/api/v1?tickers=' 
+    + ticker + '&items=50&token=t7gdmzbu6t0aq4t7buq4zt8sengdwxsjcyqciyo5';
     return this.http.get<FinancialNewsInterface[]>(this.PRICING_URL);
     }
   }

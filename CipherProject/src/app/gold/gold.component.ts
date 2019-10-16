@@ -1,7 +1,8 @@
 import { Component, OnInit } from  '@angular/core';
 import {PricingDataService} from '../pricing.service';
-import { HttpClient } from '@angular/common/http';
-import {FinancialPricingInterface} from '../FinancialPricingInterface';
+import {FinancialPricingInterface} from '../FinancialPricingInterface'
+import { NewsService } from '../news.service';
+import { FinancialNewsInterface } from '../FinancialNewsInterface';
 
 @Component({
   selector: 'app-gold',
@@ -10,16 +11,21 @@ import {FinancialPricingInterface} from '../FinancialPricingInterface';
 })
 export class GoldComponent implements OnInit {
 
+  constructor(private pricingData : PricingDataService, private newsData : NewsService) { }
+
   post : FinancialPricingInterface[];
+  postNews : FinancialNewsInterface[];
 
-  constructor(private pricingData : PricingDataService) { }
-  
   ngOnInit() {   
-    this.pricingData.getPrices().subscribe(post => {
+    this.pricingData.getPrices("GLD").subscribe(post => {
       this.post  = post;
-    }) 
-  }
-}
+    })
+      
+      this.newsData.getNews("GLD").subscribe(postNews => {
+      this.postNews  = postNews;  
+      })
 
+    }
+  }
 
 
