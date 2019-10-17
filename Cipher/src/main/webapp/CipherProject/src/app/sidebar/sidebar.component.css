@@ -1,0 +1,29 @@
+/*remove borders when articles inserted. Just to view size rn*/
+
+.i1 {
+    margin-bottom: 33%;
+    border: solid black;
+    text-align: center;
+    /* margin-right:13px */
+}
+
+.i2 {
+    margin-bottom: 33%;
+    border: solid black;
+    text-align: center;
+    /* margin-right:13px */
+}
+
+.i3 {
+    border: solid black;
+    text-align: center;
+    /* margin-right:13px */
+}
+
+#sidebar {
+    margin-top: 5px;
+    margin-bottom:5px;
+    overflow: auto;
+    height: 625px;
+    overflow-x: hidden;
+}
