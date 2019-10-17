@@ -10,8 +10,10 @@ import org.hibernate.cfg.Configuration;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.revature.models.Forums;
 import com.revature.models.IUser;
 import com.revature.models.User;
+import com.revature.repositories.IForumsDAO;
 import com.revature.repositories.IUserDAO;
 import com.revature.repositories.UserDAO;
 
@@ -26,7 +28,7 @@ public class CipherDriver {
 		ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
 
 		IUserDAO userDAO = (IUserDAO) ac.getBean("userDAO");
-		
+		IForumsDAO forumDAO = (IForumsDAO) ac.getBean("forumsDAO"); 
 		List<User> users = userDAO.findAll();
 		
 		for(User u : users) {
@@ -45,11 +47,24 @@ public class CipherDriver {
 //		user7.setUseremail("LHikari@rockmanexe.com");
 //		userDAO.update(user7);
 		
-		String mayl = "M@rockmanexe.com";
-		User checkEmail = userDAO.findByEmail(mayl);
+		String jackie = "LightningPunch@gmail.com";
+		User checkEmail = userDAO.findByEmail(jackie);
 		System.out.println(checkEmail);
+		Forums pastchat = forumDAO.findOne(1);
+		pastchat.setUser(checkEmail);
+		forumDAO.update(pastchat);
 		
-		
+		Forums chatroom = new Forums();
+		chatroom.setUser(checkEmail);
+		chatroom.setForumstopic("Microsoft Stock Rises");
+		chatroom.setForumscomment("Shocking");
+		forumDAO.save(chatroom);
+		List<Forums> chatlist = forumDAO.findAll();
+		for (Forums chattopic : chatlist) {
+			System.out.println(chattopic.getForumscomment());
+			System.out.println(chattopic.getForumstopic());
+			System.out.println(chattopic.getUser().getUserfirstname());
+		}
 	//	User roll = userDAO.findOne(3);
 	//	System.out.println(roll);
 	//	User newUser = new User();

@@ -17,9 +17,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.revature.models.Forums;
 import com.revature.models.User;
 import com.revature.repositories.IUserDAO;
 import com.revature.repositories.UserDAO;
+import com.revature.services.ForumsService;
 import com.revature.services.UserService;
 
 @Controller
@@ -27,6 +29,9 @@ public class CipherController {
 	
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private ForumsService forumservice;
 
 	@RequestMapping(method = RequestMethod.GET, value = "/home")
 	public String home() {
@@ -75,6 +80,22 @@ public class CipherController {
 		
 	}
 	
+	@GetMapping(value="/forums")
+	@ResponseBody
+	public List<Forums> findAllForums() {
+		return forumservice.findAll();
+		
+	}
+	
+	@GetMapping(value = "/forums/{id}")
+	@ResponseBody
+	public Forums findForum(@PathVariable("id") int id) {
+		Forums forum = forumservice.findOne(id);
+	    return forum;	
+
+	}
+	
+	
 	@GetMapping(value="/users")
 	@ResponseBody
 	public List<User> findAll() {
@@ -104,6 +125,17 @@ public class CipherController {
 			u.setUserpassword(userpassword);
 			userService.createUser(u);
 		
+	}
+	
+	@PostMapping(value = "*/createforum")
+	@ResponseBody
+	public void createForumComment(@RequestParam String forumstopic, String forumscomment){
+			User commentor = userService.findOne(14);
+			Forums newforum = new Forums();
+			newforum.setForumscomment(forumscomment);
+			newforum.setForumstopic(forumstopic);
+			newforum.setUser(commentor);
+			forumservice.createForum(newforum);
 	}
 
 /*
