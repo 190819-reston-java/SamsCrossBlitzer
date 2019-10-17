@@ -1,26 +1,11 @@
-// import { Component, OnInit } from '@angular/core';
-
-// @Component({
-//   selector: 'app-register',
-//   templateUrl: './register.component.html',
-//   styleUrls: ['./register.component.css']
-// })
-// export class RegisterComponent implements OnInit {
-
-//   constructor() { }
-
-//   ngOnInit() {
-//   }
-
-// }
-
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, } from '@angular/forms';
 import { AuthService } from './../auth/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
-const oUrl = "";
+const baseUrl= "http://localhost:8080/Cipher";
+const oUrl= `${baseUrl}/registration`;
 
 
 @Component({
@@ -59,6 +44,7 @@ export class RegisterComponent implements OnInit {
     {
       if (this.form.valid) {
         fetch(oUrl, { method: "POST", body: JSON.stringify(this.form.value) })
+        console.log(this.form.value);
         this.authService.Register(this.form.value);
       this.formSubmitAttempt = true;
     } else {

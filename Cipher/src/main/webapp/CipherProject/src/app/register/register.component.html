@@ -4,7 +4,7 @@
             <form [formGroup]="form" id="registrationForm" (ngSubmit)="onSubmit()">
                 <div class="col-sm-12">
                     <h3>Thank you for creating an account with us!</h3>
-                    <div id="top">
+                    <!-- <div id="top"> -->
                         <label>First name: </label>
                         <input formControlName="firstname" type="text" id="field" required>
                     </div>
@@ -14,12 +14,12 @@
                     </div>
                     <div>
                         <label>Email: </label>
-                        <input formControlName="email" type="email" id="field" required email>
+                        <input formControlName="email" name="useremail" type="email" id="field" required email>
                     </div>
                     <div>
                         <label>Password: </label>
-                        <input formControlName="password" type="password" id="field" required>
-                    </div>
+                        <input formControlName="password" name="userpassword" type="password" id="field" required>
+                    <!-- </div> -->
                     <button class="btn">Submit</button>
                 </div>
             </form>
