@@ -1,8 +1,16 @@
 package com.revature.controllers;
 
+import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -29,6 +37,25 @@ public class CipherController {
 	
 	@Autowired
 	private ForumsService forumservice;
+	
+//	@PostMapping(value = "/login")
+//	@ResponseBody
+//	public ResponseEntity<User> login(@RequestBody String usernameAndPasswordJSON, HttpServletRequest request, HttpServletResponse response) throws IOException{
+//		User u = userService.login(usernameAndPasswordJSON);
+//		
+//		response.sendRedirect(HOMEPAGE);
+//		if(u != null) {
+//			request.getSession().setAttribute("currentUser", u);
+//			return ResponseEntity.status(HttpStatus.OK).body(u);
+//		}
+//		else {
+//			return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+//		}
+//		
+//		
+//	}
+	
+	
 
 	@RequestMapping(method = RequestMethod.GET, value = "/home")
 	public String home() {
@@ -54,23 +81,48 @@ public class CipherController {
 		return roll;
 	}
 	
+	@RequestMapping(method = RequestMethod.GET, value = "/currentuser")
+	@ResponseBody 
+	ResponseEntity<User> currentUser(HttpServletRequest req, 
+				HttpServletResponse resp) throws ServletException, IOException{
+		User usercurrentuser = (User) req.getSession().getAttribute("loggedinuser");
+		System.out.println(usercurrentuser);
+		
+		return ResponseEntity.status(HttpStatus.OK).body(usercurrentuser);
+	}
+	
 	@RequestMapping(method = RequestMethod.POST, value = "/userlogin")
 	@ResponseBody
-	public User login(@RequestParam String useremail, @RequestParam String userpassword){
-		
+	public ResponseEntity<User> login(@RequestBody String json, HttpServletRequest req, 
+			HttpServletResponse resp) throws ServletException, IOException{
+
+		String[] s = json.split(",");
+		String useremail = s[0].substring(10, s[0].length()-1);
+
+		String userpassword = s[1].substring(12, s[1].length()-2);
+
 		User u = userService.findByEmail(useremail);
 		if (u == null) {
 			System.out.println("That email does not exist");
-			return u;
+			resp.sendRedirect("http://localhost:4200/login/");
+			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(u);
 		}
 		else {
 			if (userService.passwordValid(useremail, userpassword)) {
-				return u;
+				HttpSession t = req.getSession();
+				t.setAttribute("loggedinuser", u);
+				req.getSession().setAttribute("loggedinuser", u);
+//				resp.encodeRedirectURL("http://localhost:4200");
+//				resp.sendRedirect("http://localhost:4200");
+				return ResponseEntity.status(HttpStatus.OK).body(u);
+				
+				
 			}
 			
 			else {
 				System.out.println("Password is Invalid");
-				return u;
+				resp.sendRedirect("http://localhost:4200/login");
+				return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(u);
 			}
 		
 		}
