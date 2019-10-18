@@ -82,14 +82,14 @@ public class CipherController {
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/currentuser")
-	@ResponseBody 
-	ResponseEntity<User> currentUser(HttpServletRequest req, 
-				HttpServletResponse resp) throws ServletException, IOException{
-		User usercurrentuser = (User) req.getSession().getAttribute("loggedinuser");
-		System.out.println(usercurrentuser);
-		
-		return ResponseEntity.status(HttpStatus.OK).body(usercurrentuser);
-	}
+    @ResponseBody
+    public ResponseEntity<User> currentUser(HttpServletRequest req,
+                HttpServletResponse resp) throws ServletException, IOException{
+        User currentuser = (User) req.getSession().getAttribute("loggedinuser");
+        System.out.println(currentuser);
+        
+        return ResponseEntity.status(HttpStatus.OK).body(currentuser);
+    }
 	
 	@RequestMapping(method = RequestMethod.POST, value = "/userlogin")
 	@ResponseBody
