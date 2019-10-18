@@ -1,0 +1,14 @@
+.nav-item {
+    /* margin-right: 230px; */
+    font-size: 24px;
+    font-weight: bold;
+    margin-right:100px;
+    margin-left:100px;
+}
+
+.nav-item2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-right:100px;
+    margin-left:250px;
+}
