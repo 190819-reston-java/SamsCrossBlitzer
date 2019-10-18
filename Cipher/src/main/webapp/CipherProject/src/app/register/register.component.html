@@ -1,0 +1,28 @@
+<body id="body">
+    <mat-card>
+        <mat-card-content>
+            <form [formGroup]="form" id="registrationForm" (ngSubmit)="onSubmit()">
+                <div class="col-sm-12">
+                    <h3>Thank you for creating an account with us!</h3>
+                    <!-- <div id="top"> -->
+                        <label>First name: </label>
+                        <input formControlName="firstname" type="text" id="field" required>
+                    </div>
+                    <div>
+                        <label>Last name: </label>
+                        <input formControlName="lastname" type="text" id="field" required>
+                    </div>
+                    <div>
+                        <label>Email: </label>
+                        <input formControlName="email" name="useremail" type="email" id="field" required email>
+                    </div>
+                    <div>
+                        <label>Password: </label>
+                        <input formControlName="password" name="userpassword" type="password" id="field" required>
+                    <!-- </div> -->
+                    <button class="btn">Submit</button>
+                </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</body>
