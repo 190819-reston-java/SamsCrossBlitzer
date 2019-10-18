@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { User } from './user';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { HttpClientModule, HttpBackend } from '@angular/common/http';
+import { Response } from 'selenium-webdriver/http';
 
 const baseUrl= "http://localhost:8080/Cipher";
 const oUrl= `${baseUrl}/userlogin`;
@@ -22,7 +24,7 @@ export class AuthService {
 
   login(user: User){
     console.log(user);
-    if (user.useremail !== '' && user.userpassword !== '' ) { 
+    if (user.useremail !== '' && user.userpassword !== '' ) {
       this.loggedIn.next(true);
       this.router.navigate(['/home']);
     }

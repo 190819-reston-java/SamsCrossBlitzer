@@ -24,7 +24,7 @@ const routes: Routes = [
   component: RegisterComponent,
 },
 {
-  path: "home", canActivate: [AuthGuard],
+  path: "home",
   component: HomeComponent,
 },
 {
@@ -71,8 +71,14 @@ const routes: Routes = [
   path: "forum", canActivate: [AuthGuard],
   component: ForumComponent,
 },
-{ path: '', component: HomeComponent, canActivate: [AuthGuard] },
-  { path: 'login', component: LoginComponent }
+{
+   path: '', canActivate: [AuthGuard],
+   component: HomeComponent
+},
+{
+   path: 'login',
+   component: LoginComponent
+}
 
 ];
 
