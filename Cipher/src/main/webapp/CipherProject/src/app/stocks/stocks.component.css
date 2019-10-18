@@ -1,0 +1,25 @@
+#side-bar {
+    text-align: right;
+}
+
+.row {
+    margin-top: 20px;
+    margin-right: 0px;
+    text-align: left;
+}
+
+
+#side {
+    background: lightblue;
+    float: right;
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
