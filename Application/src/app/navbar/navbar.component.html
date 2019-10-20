@@ -1,0 +1,13 @@
+<nav class="nav nav-tabs navbar-light bg-light" *ngIf="isLoggedIn$ | async">
+    <a routerLink="home" routerLinkActive="active" class="nav-item nav-link">Home</a>
+    <a routerLink="stocks" routerLinkActive="active" class="nav-item nav-link">Stocks</a>
+    <a routerLink="portfolios" routerLinkActive="active" class="nav-item nav-link">Portfolios</a>
+    <a routerLink="posts" routerLinkActive="active" class="nav-item nav-link">Forum</a>
+</nav>
+<nav class="nav nav-tabs navbar-light bg-light" *ngIf="isLoggedIn$ | async">
+    <a routerLink="gold" routerLinkActive="active" class="nav-item nav-link">Gold</a>
+    <a routerLink="us" routerLinkActive="active" class="nav-item nav-link">Bonds</a>
+    <a routerLink="oil" routerLinkActive="active" class="nav-item nav-link">Oil</a>
+    <a routerLink="register" routerLinkActive="active" class="nav-item nav-link">Register</a>
+    <a routerLink="authentication" routerLinkActive="active" class="nav-item nav-link">Logout</a>
+</nav>
