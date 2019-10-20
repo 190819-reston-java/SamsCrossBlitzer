@@ -1,0 +1,16 @@
+  #signin-content {
+      text-align:center;
+      background-color: lightgray;
+      height: 780px;
+  }
+
+  #form {
+      margin:300px;
+  }
+
+  .full-width-input {
+    border-bottom:solid black;
+    width:100%;
+    margin: 20px;
+    
+  }

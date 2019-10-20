@@ -1,0 +1,46 @@
+<div class="row">
+    <div class="col-lg-8">
+    <igx-financial-chart
+            [dataSource] = post
+            width="750px"
+            height="750px"
+            brushes="Green,Blue"
+            outlines="Green, Blue"
+            negativeBrushes="Red"
+            negativeOutlines="Red"
+            thickness="1">
+        </igx-financial-chart>
+        <!-------- Portfolio Table Functionality -------->
+      <div class="alert alert-info"><b>Current Oil Data</b></div>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Open</th>
+              <th>Close</th>
+              <th>Volume</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let post of post">
+              <td>{{post.date}}</td>
+              <td>{{post.open}}</td>
+              <td>{{post.close}}</td>
+              <td>{{post.volume}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+    <div id="side" class="col-lg-4">
+            <div class="card" *ngFor="let post of postNews.data">
+                <div class="card-body">
+                    <h3>{{ post.title }}</h3>
+                    <p>{{ post.text }}</p>
+                    <img src={{post.image_url}} alt="">
+                </div>
+            </div>
+    </div>
+</div>

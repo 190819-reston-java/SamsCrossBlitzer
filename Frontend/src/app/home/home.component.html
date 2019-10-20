@@ -1,0 +1,27 @@
+<div id="side" class="col-lg-4">
+        <div class="card" *ngFor="let post of post">
+            <div class="card-body">
+                <h1>{{post.code}}</h1>
+                <h2>{{ post.high }}</h2>
+                <p>change</p>
+                <h3>{{post.change}}</h3>
+                <p>percent change</p>
+                <h4>{{ post.change_p }}</h4>
+                <p>volume</p>
+                <h4>{{post.volume}}</h4>
+            </div>
+        </div>
+</div>
+
+<div  class="col-lg-8">
+                <div><h3> Welcome to Cipher Stocks </h3></div>
+                <div class="card" *ngFor="let post of postNews.data">
+                    <div class="card-body">
+                        <h3>{{ post.title }}</h3>
+                        <p>{{ post.text }}</p>
+                        <img src={{post.image_url}} alt="">
+                    </div>
+                </div>
+        </div>
+
+   
