@@ -1,6 +1,7 @@
 package com.revature.controllers;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -23,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.revature.models.Comment;
 import com.revature.models.Forums;
 import com.revature.models.User;
 import com.revature.services.ForumsService;
@@ -72,6 +74,8 @@ public class CipherController {
 		return ResponseEntity.status(HttpStatus.OK).body(usercurrentuser);
 	}
 	
+	
+	
 	@RequestMapping(method = RequestMethod.POST, value = "/userlogin")
 	@ResponseBody
 	public ResponseEntity<User> login(@RequestBody String json, HttpServletRequest req, 
@@ -108,6 +112,19 @@ public class CipherController {
 		
 		}
 		
+	}
+	
+	@GetMapping(value="/logout")
+	@ResponseBody
+	public void logoutuser(HttpServletRequest req, HttpServletResponse resp){
+		System.out.println("User logged out");
+		req.getSession().setAttribute("loggedinuser", null);
+	}
+	
+	@GetMapping(value="/comments")
+	@ResponseBody
+	public List<Comment> getComments() {
+		return forumservice.getComments();
 	}
 	
 	@GetMapping(value="/forums")

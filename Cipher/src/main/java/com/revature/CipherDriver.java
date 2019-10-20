@@ -11,6 +11,7 @@ import org.hibernate.cfg.Configuration;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.revature.models.Comment;
 import com.revature.models.Forums;
 import com.revature.models.IUser;
 import com.revature.models.User;
@@ -63,12 +64,19 @@ public class CipherDriver {
 		List<Forums> chatlist = forumDAO.findAll();
 		ArrayList<Forums> chatsorted = new ArrayList(chatlist);
 		
-		for (Forums chattopic : chatlist) {
-			System.out.println(chattopic.getForumsid());
-			System.out.println(chattopic.getForumscomment());
-			System.out.println(chattopic.getForumstopic());
-			System.out.println(chattopic.getUser().getUserfirstname());
+//		for (Forums chattopic : chatlist) {
+//			System.out.println(chattopic.getForumsid());
+//			System.out.println(chattopic.getForumscomment());
+//			System.out.println(chattopic.getForumstopic());
+//			System.out.println(chattopic.getUser().getUserfirstname());
+//		}
+		ArrayList<Comment> commentlist = new ArrayList();
+		for (Forums f : chatlist) {
+			Comment c = new Comment(f.getUser().getUserid(), f.getForumsid(),
+					f.getForumstopic(), f.getForumscomment());
+			commentlist.add(c);
 		}
+		System.out.println(commentlist);
 	//	User roll = userDAO.findOne(3);
 	//	System.out.println(roll);
 	//	User newUser = new User();

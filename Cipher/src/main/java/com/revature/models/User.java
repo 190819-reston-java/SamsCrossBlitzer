@@ -72,7 +72,7 @@ public class User implements Serializable, IUser {
 	}
 
 	@Override
-	public long getUserid() {
+	public int getUserid() {
 		return userid;
 	}
 
